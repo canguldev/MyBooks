@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomePageVC: UIViewController {
     //MARK: - Variables
@@ -22,6 +23,10 @@ class HomePageVC: UIViewController {
         fetchBooks()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     //MARK: - Helper Functions
     func fetchBooks() {
         do {
@@ -30,7 +35,7 @@ class HomePageVC: UIViewController {
                 self.booksTableView.reloadData()
             }
         } catch {
-            customErrorAlert(message: "Data couldn't be fetched. Please try again.")
+            customErrorAlertView(message: "Data couldn't be fetched. Please try again.")
         }
     }
     
@@ -39,18 +44,20 @@ class HomePageVC: UIViewController {
         do {
             try context.save()
         } catch {
-            customErrorAlert(message: "Data couldn't be deleted. Please try again")
+            customErrorAlertView(message: "Data couldn't be deleted. Please try again")
         }
         fetchBooks()
     }
 }
 
 //MARK: - UITableViewDelegate
-extension HomePageVC: UITextViewDelegate {
+extension HomePageVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let currentBook = self.books[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-            self.deleteBook(selectedBook: currentBook)
+            self.customDeleteAlertView {
+                self.deleteBook(selectedBook: currentBook)
+            }
         }
         let editAction = UIContextualAction(style: .normal, title: "Edit last read page") { _, _, _ in
             self.editLastReadPageAlert(currentBook: currentBook, forRowAt: indexPath)
@@ -62,7 +69,7 @@ extension HomePageVC: UITextViewDelegate {
 //MARK: - UITableViewDataSource
 extension HomePageVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,13 +103,13 @@ extension HomePageVC {
         let saveButton = UIAlertAction(title: "Save", style: .default) { (action) in
             if let currentPageNumber = Int(currentBook.pages!), let editPageNumber = Int(alertTextField.text!) {
                 if (editPageNumber > currentPageNumber) {
-                    self.customErrorAlert(message: "The number of pages cannot exceed the total number of pages in the book!")
+                    self.customErrorAlertView(message: "The number of pages cannot exceed the total number of pages in the book!")
                 } else {
                     currentBook.lastReadPage = alertTextField.text
                     do {
                         try self.context.save()
                     } catch {
-                        self.customErrorAlert(message: "Data couldn't be saved. Please try again.")
+                        self.customErrorAlertView(message: "Data couldn't be saved. Please try again.")
                     }
                     self.booksTableView.reloadData()
                 }

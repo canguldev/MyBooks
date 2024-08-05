@@ -71,7 +71,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Books" id="aTQ-Sw-zga">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2ag-zr-9FW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2ag-zr-9FW">
+                            <connections>
+                                <segue destination="WPd-zM-Ajl" kind="show" identifier="homeToAddPage" id="coO-fv-QTS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="booksTableView" destination="4Ik-AY-Xjr" id="jP6-g8-UnF"/>
@@ -80,6 +84,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="-27.464788732394368"/>
+        </scene>
+        <!--Add Book-->
+        <scene sceneID="w7F-z3-Zyd">
+            <objects>
+                <viewController id="WPd-zM-Ajl" customClass="AddPageVC" customModule="MyBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RSh-zV-Vr9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edR-8n-HeH">
+                                <rect key="frame" x="20" y="123" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Book's author name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="rzA-Xg-iJp">
+                                <rect key="frame" x="20" y="154" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WPd-zM-Ajl" id="7TB-LB-LV6"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y09-hH-B4O">
+                                <rect key="frame" x="20" y="195" width="353" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Book's name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="tSb-Cw-jXw">
+                                <rect key="frame" x="20" y="227" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WPd-zM-Ajl" id="qGJ-5Z-5pS"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0p-Mg-XJZ">
+                                <rect key="frame" x="20" y="268" width="353" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Book's page count" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Co4-QS-fV8">
+                                <rect key="frame" x="20" y="300" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WPd-zM-Ajl" id="nX4-ZV-gQG"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aI-4n-qic">
+                                <rect key="frame" x="20" y="763" width="353" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="WPd-zM-Ajl" eventType="touchUpInside" id="lAM-Se-6xU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eDE-Ot-zZQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rzA-Xg-iJp" firstAttribute="top" secondItem="edR-8n-HeH" secondAttribute="bottom" constant="10" id="3Ob-eO-nvT"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="trailing" secondItem="7aI-4n-qic" secondAttribute="trailing" constant="20" id="5Xx-LG-ogr"/>
+                            <constraint firstItem="edR-8n-HeH" firstAttribute="top" secondItem="eDE-Ot-zZQ" secondAttribute="top" constant="20" id="B5b-Fd-uYJ"/>
+                            <constraint firstItem="Co4-QS-fV8" firstAttribute="leading" secondItem="eDE-Ot-zZQ" secondAttribute="leading" constant="20" id="B5y-Mh-ALO"/>
+                            <constraint firstItem="p0p-Mg-XJZ" firstAttribute="top" secondItem="tSb-Cw-jXw" secondAttribute="bottom" constant="20" id="C5L-ue-Mdc"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="trailing" secondItem="y09-hH-B4O" secondAttribute="trailing" constant="20" id="CKv-S8-qjm"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="trailing" secondItem="p0p-Mg-XJZ" secondAttribute="trailing" constant="20" id="DRg-Jy-nNC"/>
+                            <constraint firstItem="y09-hH-B4O" firstAttribute="leading" secondItem="eDE-Ot-zZQ" secondAttribute="leading" constant="20" id="Ibp-oA-2E6"/>
+                            <constraint firstItem="rzA-Xg-iJp" firstAttribute="leading" secondItem="eDE-Ot-zZQ" secondAttribute="leading" constant="20" id="Kir-Ct-g14"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="trailing" secondItem="tSb-Cw-jXw" secondAttribute="trailing" constant="20" id="MXU-sR-jXV"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="bottom" secondItem="7aI-4n-qic" secondAttribute="bottom" constant="20" id="Pgf-lw-kCD"/>
+                            <constraint firstItem="tSb-Cw-jXw" firstAttribute="leading" secondItem="eDE-Ot-zZQ" secondAttribute="leading" constant="20" id="RoT-7T-2Xg"/>
+                            <constraint firstItem="edR-8n-HeH" firstAttribute="leading" secondItem="eDE-Ot-zZQ" secondAttribute="leading" constant="20" id="chZ-dL-4eo"/>
+                            <constraint firstItem="tSb-Cw-jXw" firstAttribute="top" secondItem="y09-hH-B4O" secondAttribute="bottom" constant="10" id="dBb-FX-PRn"/>
+                            <constraint firstItem="p0p-Mg-XJZ" firstAttribute="leading" secondItem="eDE-Ot-zZQ" secondAttribute="leading" constant="20" id="eHK-9k-DIH"/>
+                            <constraint firstItem="Co4-QS-fV8" firstAttribute="top" secondItem="p0p-Mg-XJZ" secondAttribute="bottom" constant="10" id="i1f-ex-iGd"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="trailing" secondItem="Co4-QS-fV8" secondAttribute="trailing" constant="20" id="j7P-b7-BoN"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="trailing" secondItem="rzA-Xg-iJp" secondAttribute="trailing" constant="20" id="j8S-vc-TLm"/>
+                            <constraint firstItem="eDE-Ot-zZQ" firstAttribute="trailing" secondItem="edR-8n-HeH" secondAttribute="trailing" constant="20" id="puO-75-Ydi"/>
+                            <constraint firstItem="7aI-4n-qic" firstAttribute="leading" secondItem="eDE-Ot-zZQ" secondAttribute="leading" constant="20" id="uhC-Fj-fb5"/>
+                            <constraint firstItem="y09-hH-B4O" firstAttribute="top" secondItem="rzA-Xg-iJp" secondAttribute="bottom" constant="20" id="xJr-LR-o1y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Book" id="04s-C8-hWh"/>
+                    <connections>
+                        <outlet property="authorTextField" destination="rzA-Xg-iJp" id="RxN-3u-SZT"/>
+                        <outlet property="pageCountTextField" destination="Co4-QS-fV8" id="1cG-Vi-l2y"/>
+                        <outlet property="titleTextField" destination="tSb-Cw-jXw" id="LyS-95-37V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cyW-tf-uqu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="-423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RZg-kh-Nan">
