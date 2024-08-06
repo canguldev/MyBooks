@@ -48,10 +48,21 @@ class HomePageVC: UIViewController {
         }
         fetchBooks()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetailPage" {
+            let destinationVC = segue.destination as! DetailPageVC
+            destinationVC.currentBook = books[sender as! Int]
+        }
+    }
 }
 
 //MARK: - UITableViewDelegate
 extension HomePageVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "homeToDetailPage", sender: indexPath.row)
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let currentBook = self.books[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
