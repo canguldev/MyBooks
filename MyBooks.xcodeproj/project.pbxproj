@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		367F28C22C62602C00B9AB27 /* DetailPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367F28C12C62602C00B9AB27 /* DetailPageVC.swift */; };
+		367F28C52C626F9200B9AB27 /* EditPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367F28C42C626F9200B9AB27 /* EditPageVC.swift */; };
 		3694D4412C60B9EB00763CB2 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3694D4402C60B9EB00763CB2 /* HomePageVC.swift */; };
 		3694D4432C60BC1800763CB2 /* BooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3694D4422C60BC1800763CB2 /* BooksTableViewCell.swift */; };
 		3694D4462C60C1FE00763CB2 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3694D4442C60C1FE00763CB2 /* Book+CoreDataClass.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		367F28C12C62602C00B9AB27 /* DetailPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageVC.swift; sourceTree = "<group>"; };
+		367F28C42C626F9200B9AB27 /* EditPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPageVC.swift; sourceTree = "<group>"; };
 		3694D4402C60B9EB00763CB2 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
 		3694D4422C60BC1800763CB2 /* BooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewCell.swift; sourceTree = "<group>"; };
 		3694D4442C60C1FE00763CB2 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 				367F28C12C62602C00B9AB27 /* DetailPageVC.swift */,
 			);
 			path = DetailPage;
+			sourceTree = "<group>";
+		};
+		367F28C32C626F6D00B9AB27 /* EditPage */ = {
+			isa = PBXGroup;
+			children = (
+				367F28C42C626F9200B9AB27 /* EditPageVC.swift */,
+			);
+			path = EditPage;
 			sourceTree = "<group>";
 		};
 		3694D43F2C60B9B700763CB2 /* HomePage */ = {
@@ -165,6 +175,7 @@
 				3694D43F2C60B9B700763CB2 /* HomePage */,
 				36A9DB902C61116400C88270 /* AddPage */,
 				367F28C02C625FF700B9AB27 /* DetailPage */,
+				367F28C32C626F6D00B9AB27 /* EditPage */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -285,6 +296,7 @@
 				3694D44B2C60C57B00763CB2 /* CustomAlertView.swift in Sources */,
 				367F28C22C62602C00B9AB27 /* DetailPageVC.swift in Sources */,
 				36C2EC6F2C5FCBED00EDF063 /* SceneDelegate.swift in Sources */,
+				367F28C52C626F9200B9AB27 /* EditPageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

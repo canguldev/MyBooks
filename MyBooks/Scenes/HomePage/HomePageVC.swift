@@ -28,7 +28,7 @@ class HomePageVC: UIViewController {
     }
     
     //MARK: - Helper Functions
-    func fetchBooks() {
+    private func fetchBooks() {
         do {
             self.books = try context.fetch(Book.fetchRequest())
             DispatchQueue.main.async {

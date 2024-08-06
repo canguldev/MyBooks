@@ -31,9 +31,16 @@ class DetailPageVC: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailToEditPage" {
+            let destinationVC = segue.destination as! EditPageVC
+            destinationVC.currentBook = self.currentBook
+        }
+    }
+    
     //MARK: - @Actions
     @IBAction func editButton(_ sender: Any) {
-        
+        performSegue(withIdentifier: "detailToEditPage", sender: nil)
     }
     
 }
